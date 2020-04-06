@@ -1,0 +1,30 @@
+Most important algorithm feature for big O analysis: number of repetitions (loop iterations or recursive method calls).
+
+
+
+Explanation of recursive big O analysis, method 4 and 5 in ComplexityPractice2.java:
+
+In each method4 and method5, the body of the method takes constant time O(1).  So to determine the runtime, we are only concerned with the number of repetitions of the method, or in other words, the number of times the method is recursively called.  In both cases the method body contains two recursive calls.  We can count the total number of recursive calls by representing the recursion as a binary tree (binary because there are two recursive calls each time).  Visual representation of binary tree here.  At each level of the binary tree, starting from a single node at the root, the number of nodes doubles.  Ex.  at the first level there is one node, at the second level 2 nodes, at the third level 4 nodes.  The formula for the number of nodes at a given depth is thus 2^d (d is the depth).  So we need to determine how many levels of recursion each method executes in order to calculate the maximum depth, and therefore the total number of nodes.  For method4, each recursive method call passes either n-2 or n-1 as an argument, so using n-1 as the worst case the maximum depth of the recursion tree for method4 is n.  The formula for the total number of nodes in a binary tree with height h is 2^(h+1) - 1 (if this is unclear, consider how the maximum value that can be represented by a binary number with n bits is  2^n - 1, i.e. a number with 3 bits can represent values up to 2^3 - 1 = 7).  So for method4 we have 2^(n+1) - 1 nodes in the recursion tree, so we generalize to O(2^n).  The major difference with method5 is the recursion depth.  Instead of each call reducing n linearly, i.e. n -1, method5 reduces the problem size by half at each step.  So the maximum depth of the tree for method5 is log n, rather than n in method4.  This means to calculate the number of nodes total we have 2^(log n + 1) - 1.  By properties of logarithms, this simplifies: 2^(log n) => n.  So method5 is O(n).
+
+
+
+Linear data types: Array
+
+Concrete data type.  Analysis of accessing an array element, analysis of inserting and removing elements.
+
+
+
+Supplemental readings:
+Textbook Ch. 4.2 - 4.3, p. 156 - 177 (big O)
+Textbook Ch. 5.2 - 5.5, p. 202 - 218 (recursive analysis)
+Textbook Ch. 3.1 p. 104 - 111 (arrays)
+Textbook Ch. 7.1 p. 258 - 259 (List ADT)
+
+Homework:
+1- Why do we only care about the number of repeated steps for calculating big O (in other words, why is it okay to ignore steps that are outside of loops, or steps that only occur once inside of a loop)?
+
+2- From the in-class examples, it is clear that using recursion does not necessarily lead to an efficient algorithm.  In fact, a recursive solution is never more efficient than an iterative (non-recursive) solution to the same problem (at least in Java). So what is the purpose of using recursion?
+
+3- Write the code to define an insert(...) method that takes an array of integers as an argument, an integer that is to be inserted, and the index where it is to be inserted.  The method should return an array with the insertion performed.
+
+4- Write the code to define a remove(...) method that takes an array of characters as an argument and the index of a character that is to be removed.  Return an array with the removal performed.

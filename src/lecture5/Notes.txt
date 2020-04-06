@@ -1,0 +1,44 @@
+Linked Lists
+
+Sequence of nodes, each consisting of a single data element and a variable to reference the subsequent node.
+The end of the list is represented by a node whose subsequent node is null.
+
+Efficient adding and removing of elements (if we already have access to the Node at the correct position)
+
+Two classes: a Node class and a LinkedList class.  The user should not access Nodes directly.
+
+Essential Methods:
+E first()
+E last()
+int size()
+boolean isEmpty()
+void addFirst(E)
+void addLast(E)
+E removeFirst()
+
+Analysis of remaining List ADT methods
+void set(int, E)
+void add(int, E)
+E get(int)
+E remove(int)
+
+Supplemental Reading:
+
+Textbook Ch 3.2, p. 122 - 127
+
+Homework:
+
+1 - Implement the following method: E removeLast().  This method should return the last element of the list and remove
+it from the list.
+
+2 - Opinion: Do you prefer to implement a LinkedList using a sentinel node for the header (which will never store data),
+or to have the head variable point directly to the Node containing the first data element?  Why?
+
+3 - What are the tradeoffs (benefits and drawbacks) of using variables to track size and tail rather than computing them
+by starting from the head node?
+pros
+We do not need to traverse the entire list
+
+cons
+We have to update size every time we add or remove a node
+we have to update tail whenever we remove the current tail;

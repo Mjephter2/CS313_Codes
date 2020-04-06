@@ -1,0 +1,51 @@
+Merge sort
+Divide-and-conquer algorithmic paradigm:
+The following steps are executed recursively:
+Divide: if the input size is very small, solve the problem in a straightforward manner.  Otherwise, divide the input data
+    into two or more disjoint subsets.
+Conquer: Solve the subproblems associated with the subsets.
+Combine: Merge the solutions to the subproblems into a solution for the original problem.
+
+High-level overview of merge sort:
+Divide: If the input has zero or one element, return the input (as it is already sorted).  Otherwise, divide the input
+    into two subsets containing the first and second halves of the input.
+Conquer: Sort the subsets using merge sort (recursion).
+Combine: Merge the two sorted subsets into a full sorted sequence.
+
+
+First approach: array-based, creating new arrays during divide step
+Second approach: LinkedList-based, creating new lists during divide step
+Third approach: array-based, creating new array during the merge step
+Fourth approach: array-based, non-recursive (textbook p. 543)
+
+Runtime analysis:
+First, we analyze the runtime of a single execution of the mergeSort method.
+The first step is divide, where we split the input into two subsets.  Depending on our approach, this takes either linear time or constant time (O(n) or O(1)).
+Next, we conquer by recursively calling the mergeSort method twice (this is where our repetition occurs - more on this later).
+Lastly, we combine, or merge, the newly sorted subsets.  This involves executing the merge method, which takes O(n) steps.
+So, overall, a single execution of the mergeSort method takes O(n) steps.  
+
+Next, we analyze the number of times the mergeSort method will be repeatedly executed, considering as well as the changes
+in the size of the input to mergeSort as it is recursively called.  Each execution of mergeSort contains two recursive
+calls, but each of those calls takes only half of the initial input.  As determined in part 1 above, the initial invocation
+of mergeSort takes O(n) steps. The first pair of recursive invocations then each take O(n/2) steps, which is O(n) steps total.
+Each level of recursion doubles the number of mergeSort invocations, but halves the input size, so each level of recursion
+continues to take O(n) steps.
+Note a visualization of the recursion tree here:
+https://www.researchgate.net/profile/Wolfgang_Schreiner2/publication/267856474/figure/fig9/AS:669218265636872@1536565476357/Recursion-Tree-for-MERGESORT.png
+Then to determine the total runtime, we need to consider how many levels of recursion occur.  The recursion ends when we
+reach an input size of 1 (or 0). If we start at input size n and continue dividing it by half, it will take log2 n steps
+to reach 1, which is where the recursion finally stops.
+
+Thus, the total runtime is the time to execute one level of recursion, O(n), times the number of levels of recursion, O(log n), which we multiply to reach O(n log n).
+
+Supplemental Reading
+Textbook Ch. 12.1 p. 532 - 543
+
+Homework:
+
+1 - Implement mergeSort using Queues.
+
+ 
+ 
+2 - As we did in the last lecture with the List interface, AbstractList, and insertion sort, add a sort() method to the Queue interface and implement it in an AbstractQueue class.

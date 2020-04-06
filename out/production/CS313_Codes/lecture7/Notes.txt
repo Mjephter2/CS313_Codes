@@ -1,0 +1,83 @@
+Doubly Linked Lists, Positional list ADT
+
+
+
+Doubly Linked List
+
+Node class is modified to point to prev in addition to next
+
+Allows O(1) insertion between any two nodes (as long as we have references to those nodes…)
+
+We will adapt this idea so that inner data elements can be accessed efficiently
+
+
+
+Method list:
+
+private void addBetween(E, Node, Node), private E remove(Node)
+
+int size(), boolean isEmpty(), E first(), E last(), void addFirst(E), void addLast(E), E removeFirst(), E removeLast()
+
+
+
+Positional List Abstract Data Type (ADT)
+
+Position interface (similar to Node, but Node remains private) used to determine current position in the list
+
+
+
+Position methods:
+E getData()
+
+//note that a Position object cannot be changed directly, only accessed 
+
+
+
+Positional List methods:
+
+int size(), boolean isEmpty(), Position first(), Position last(), Position addFirst(E), Position addLast(E), 
+
+Position before(Position), Position after(Position), Position addBefore(Position, E), Position addAfter(Position, E),
+E set(Position, E), E remove(Position)
+//note the lack of void methods; even though we may not have need of the Position (or Element, after setting or removing),
+we return it in case it may be useful
+
+
+
+Linked Positional List methods
+
+private Position addBetween(E, Node, Node)
+
+private Node validate(Position), private Position position(Node)
+
+//important methods to convert between Positions and Nodes for internal use
+
+
+
+
+Big O analysis of methods implemented
+
+
+
+Supplemental Reading:
+
+Textbook Ch. 3.4 p. 132 - 137
+
+Textbook Ch. 7.3 p. 270 - 281
+
+
+
+Homework:
+
+ 
+1 - Implement the toString() method for the LinkedPositionalList class (done)
+
+2 - The validate() method of the LinkedPositionalList class ensures that a given Position is indeed a Position, but it does
+not actually ensure that the given Position belongs to this list (imagine a program with multiple LinkedPositionalLists -
+a position from one list could be passed to another list).  Modify the validate() method so that it also ensures the
+Position belongs to this list. Is this modification “worth it”? (explain why or why not) (done)
+
+2 - Which PositionalList methods will become worse (in terms of big O analysis) if we implement the PositionalList with
+an array (rather than a doubly linked list)?  (Hint: consider what a Position represents and how that relates to the
+concept of an index)
+Answer: addFirst(), addBefore(), addAfter() and remove() take O(n) time

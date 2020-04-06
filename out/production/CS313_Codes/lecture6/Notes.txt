@@ -1,0 +1,36 @@
+Linked Lists
+
+Comparison of efficiency of List ADT methods: ArrayList vs. SinglyLinkedList
+
+Circularly Linked List
+Rather than pointing to null, tail points to the head
+Use case: round-robin scheduling
+One additional method: void rotate() //move first element to the end of the list
+rotate() and all other SinglyLinkedList methods can be implemented without a head variable.
+
+
+Doubly Linked List
+Node class is modified to point to prev in addition to next
+Allows O(1) insertion between any two nodes (as long as we have references to those nodes…)
+We will adapt this idea so that inner data elements can be accessed efficiently
+
+Supplemental Readings:
+Textbook Ch. 3.3 - 3.4  p. 128 - 137
+Textbook Ch. 7.2.3 p. 265 - 269 (optional: on amortized analysis of ArrayList add method)
+Textbook Ch. 7.3 p. 270 - 
+
+Homework:
+
+1 - We saw that a SinglyLinkedList may be implemented using a “sentinel” head node (a dummy node whose purpose is to
+simplify some edge cases where the list is empty), but can also be implemented without a sentinel.  Essentially, the
+choice is up to the programmer and there is no impact on performance. Explain why a CircularlyLinkedList should not be
+implemented with a sentinel, and why a DoublyLinkedList should be implemented with sentinels.
+Answer : A circularlyLinkedList has a tail that point to the head of the list. If we do have a sentinel head that also
+points to the head, it creates an issue when implementing the rotate() method because it would be wasteful to have to
+modify the node the sentinel head points to every time. Any way, the tail node already guarantees access to the head node.
+
+2 - Implement a class called CircularList that implements all of the same methods of the CircularlyLinkedList class, but
+uses an array as the underlying structure. Is it possible to achieve the same efficiency (O(1) for each method) using an
+array?
+The methods for retrieving data, size() and isEmpty() has a O(1) runtime. Everything else has a O(n) runtime due to the
+potential need to increase the size of the array.
