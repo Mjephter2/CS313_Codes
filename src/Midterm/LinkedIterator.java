@@ -10,7 +10,6 @@ public class LinkedIterator<E> implements Iterator<E> {
         data = list;
     }
 
-
     @Override
     public boolean hasNext() {
         return !data.isEmpty();

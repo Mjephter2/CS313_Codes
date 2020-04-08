@@ -8,22 +8,22 @@ import java.util.Random;
 
 public class ArrayList<E> implements List<E>, Iterable<E>, Sortable<E> {
 
-	public static void main(String[] args) {
-		ArrayList<Integer> testList = new ArrayList<>();
-		Random rand = new Random();
-		for(int i = 0; i < 30; i++){
-			testList.add(i,rand.nextInt(100) + 100);
-		}
-
-		System.out.println(testList);
-		testList.sort(new Comparator<Integer>() {
-			@Override
-			public int compare(Integer o1, Integer o2) {
-				return o1 - o2;
-			}
-		});
-		System.out.println(testList);
-	}
+//	public static void main(String[] args) {
+//		ArrayList<Integer> testList = new ArrayList<>();
+//		Random rand = new Random();
+//		for(int i = 0; i < 30; i++){
+//			testList.add(i,rand.nextInt(100) + 100);
+//		}
+//
+//		System.out.println(testList);
+//		testList.sort(new Comparator<Integer>() {
+//			@Override
+//			public int compare(Integer o1, Integer o2) {
+//				return o1 - o2;
+//			}
+//		});
+//		System.out.println(testList);
+//	}
 
 
 	private void mergeSort(E[] array, Comparator<E> comp) {

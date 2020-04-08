@@ -5,27 +5,27 @@ import java.util.Random;
 
 public class CircularArrayList<E> implements CircularList<E> {
 
-	public static void main(String[] args) {
-		CircularArrayList<Integer> testList = new CircularArrayList<Integer>(30);
-		Random rand = new Random();
-		for(int i = 0; i < 20; i++){
-			testList.addFirst(rand.nextInt(100));
-		}
-		System.out.println(testList);
-		System.out.println("First: " + testList.first());
-		System.out.println("Last: " + testList.last());
-		System.out.println("applying addLast");
-		testList.addLast(10000);
-		System.out.println("new Last: " + testList.last());
-		System.out.println(testList);
-		System.out.println("removeFirst: " + testList.removeFirst());
-		System.out.println(testList);
-		System.out.println("rotating");
-		for(int i = 0; i < 2; i++) {
-			testList.rotate();
-		}
-		System.out.println(testList);
-	}
+//	public static void main(String[] args) {
+//		CircularArrayList<Integer> testList = new CircularArrayList<Integer>(30);
+//		Random rand = new Random();
+//		for(int i = 0; i < 20; i++){
+//			testList.addFirst(rand.nextInt(100));
+//		}
+//		System.out.println(testList);
+//		System.out.println("First: " + testList.first());
+//		System.out.println("Last: " + testList.last());
+//		System.out.println("applying addLast");
+//		testList.addLast(10000);
+//		System.out.println("new Last: " + testList.last());
+//		System.out.println(testList);
+//		System.out.println("removeFirst: " + testList.removeFirst());
+//		System.out.println(testList);
+//		System.out.println("rotating");
+//		for(int i = 0; i < 2; i++) {
+//			testList.rotate();
+//		}
+//		System.out.println(testList);
+//	}
 
 	private Object[] data;
 	private int size, first;

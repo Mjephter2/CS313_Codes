@@ -6,22 +6,22 @@ import java.util.Random;
 
 public class DoublyLinkedList<E> implements Iterable<E>, Sortable<E> {
 
-	public static void main(String[] args) {
-		Random rand = new Random();
-
-		DoublyLinkedList<Integer> testList = new DoublyLinkedList<>();
-		for(int i = 0; i < 20; i++){
-			testList.addLast(rand.nextInt(100));
-		}
-		System.out.println(testList);
-		testList.sort(new Comparator<Integer>() {
-			@Override
-			public int compare(Integer o1, Integer o2) {
-				return o1 - o2;
-			}
-		});
-		System.out.println(testList);
-	}
+//	public static void main(String[] args) {
+//		Random rand = new Random();
+//
+//		DoublyLinkedList<Integer> testList = new DoublyLinkedList<>();
+//		for(int i = 0; i < 20; i++){
+//			testList.addLast(rand.nextInt(100));
+//		}
+//		System.out.println(testList);
+//		testList.sort(new Comparator<Integer>() {
+//			@Override
+//			public int compare(Integer o1, Integer o2) {
+//				return o1 - o2;
+//			}
+//		});
+//		System.out.println(testList);
+//	}
 	
 	private Node<E> header, trailer;
 	private int size;

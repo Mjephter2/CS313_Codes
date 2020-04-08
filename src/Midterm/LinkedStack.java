@@ -1,20 +1,19 @@
 package Midterm;
 
-import java.util.Iterator;
 import java.util.Random;
 
 public class LinkedStack<E> implements Stack<E> {
 
-	public static void main(String[] args) {
-		LinkedStack<Integer> testList = new LinkedStack<>();
-		Random rand = new Random();
-		for(int i = 0; i < 20; i++){
-			testList.push(rand.nextInt(100));
-		}
-		System.out.println(testList);
-		int search = rand.nextInt(100);
-		System.out.println("searching for " + search + ": found at index " + testList.search(search));
-	}
+//	public static void main(String[] args) {
+//		LinkedStack<Integer> testList = new LinkedStack<>();
+//		Random rand = new Random();
+//		for(int i = 0; i < 20; i++){
+//			testList.push(rand.nextInt(100));
+//		}
+//		System.out.println(testList);
+//		int search = rand.nextInt(100);
+//		System.out.println("searching for " + search + "...: found at index " + testList.search(search));
+//	}
 
 	private DoublyLinkedList<E> data = new DoublyLinkedList<>();
 
