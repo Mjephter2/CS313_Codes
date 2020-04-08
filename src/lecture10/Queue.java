@@ -1,5 +1,7 @@
 package lecture10;
 
+import java.util.Comparator;
+
 public interface Queue<E> {
 
 	void enqueue(E e);
@@ -11,5 +13,7 @@ public interface Queue<E> {
 	int size();
 	
 	boolean isEmpty();
+
+	void sort(Comparator<E> comp);
 	
 }

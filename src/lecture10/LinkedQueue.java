@@ -28,7 +28,11 @@ public class LinkedQueue<E> implements Queue<E> {
 
 	@Override
 	public boolean isEmpty() {
-		return this.isEmpty();
+		return this.data.isEmpty();
+	}
+
+	public String toString(){
+		return data.toString();
 	}
 
 }

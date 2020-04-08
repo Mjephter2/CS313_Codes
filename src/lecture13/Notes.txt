@@ -44,8 +44,8 @@ Textbook Ch. 12.1 p. 532 - 543
 
 Homework:
 
-1 - Implement mergeSort using Queues.
+1 - Implement mergeSort using Queues. (done)
 
  
  
-2 - As we did in the last lecture with the List interface, AbstractList, and insertion sort, add a sort() method to the Queue interface and implement it in an AbstractQueue class.
+2 - As we did in the last lecture with the List interface, AbstractList, and insertion sort, add a sort() method to the Queue interface and implement it in an AbstractQueue class. (done)
