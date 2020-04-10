@@ -14,6 +14,6 @@ public interface Queue<E> {
 	
 	boolean isEmpty();
 
-	void sort(Comparator<E> comp);
+	//void sort(Comparator<E> comp);
 	
 }

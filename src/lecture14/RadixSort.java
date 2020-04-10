@@ -12,13 +12,13 @@ public class RadixSort {
 		
 		Random rand = new Random();
 		
-		Integer[] a = new Integer[8];
+		Integer[] a = new Integer[50];
 		for (int i = 0; i < a.length; i++)
-			a[i] = rand.nextInt(1000);
+			a[i] = rand.nextInt(1000) - 500;
 		
 		print(a);
 		
-		radixSort(a);
+		radixSort2(a);
 		
 		print(a);
 	}
@@ -71,6 +71,64 @@ public class RadixSort {
 			if (arr[i] > max) max = arr[i];
 		}
 		return max;
+	}
+	private static Integer absMax(Integer[] arr){
+		Integer max = 0;
+		for (int i = 0; i < arr.length; i++) {
+			if (Math.abs(arr[i]) > max) max = Math.abs(arr[i]);
+		}
+		return max;
+	}
+	//hw
+	//#1
+	// radix sort with mix of positive and negative integers
+	public static void radixSort2(Integer[] arr){
+		int numPosValues = numPos_NegValues(arr)[0];
+		int numNegValues = numPos_NegValues(arr)[1];
+
+		//2 arrays that will contains the positive and negative values separately
+		Integer[] posValues = new Integer[numPosValues];
+		Integer[] negValues = new Integer[numNegValues];
+
+		//filling the arrays accordingly
+		int i = 0,j=0,k=0;
+		while(k < arr.length){
+			if(arr[k] > 0) posValues[i++] = arr[k++];
+			else negValues[j++] = arr[k++];
+		}
+		//sort the positive value array with the positive values of arr
+		radixSort(posValues);
+		//negate the all the values of the negative values array
+		negate(negValues);
+		//sort negative value array (currently filled with positive values
+		radixSort(negValues);
+
+		//insert the (negative) values of the negative values array from last to first
+		// and then insert the positive values from the sorted positive value array
+		i = 0;
+		j=negValues.length - 1;
+		k=0;
+		while(k < negValues.length){
+			arr[k++] = (-1) * negValues[j--];
+		}
+		while(k < arr.length){
+			arr[k++] = posValues[i++];
+		}
+	}
+	private static void negate(Integer[] arr){
+		for(int i = 0; i < arr.length; i++) {
+			arr[i] = (-1) * arr[i];
+		}
+	}
+	private static Integer[] numPos_NegValues(Integer[] arr){
+		Integer[] result = new Integer[2];
+		result[0] = 0;
+		result[1] = 0;
+		for(int i = 0; i < arr.length; i++){
+			if(arr[i] < 0) result[1]++;
+			else result[0]++;
+		}
+		return result;
 	}
 	
 	private static int countDigits(Integer n) {

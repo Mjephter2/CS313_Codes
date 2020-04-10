@@ -5,7 +5,7 @@ import lecture6.CircularlyLinkedList;
 public class LinkedCircularQueue<E> implements CircularQueue<E> {
 
 	private CircularlyLinkedList<E> data = new CircularlyLinkedList<>();
-	
+
 	@Override
 	public void enqueue(E e) {
 		this.data.addLast(e);
@@ -39,5 +39,5 @@ public class LinkedCircularQueue<E> implements CircularQueue<E> {
 	public String toString(){
 		return this.data.toString();
 	}
-	
+
 }

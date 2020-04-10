@@ -5,7 +5,7 @@ import lecture6.SinglyLinkedList;
 public class LinkedQueue<E> implements Queue<E> {
 
 	private SinglyLinkedList<E> data = new SinglyLinkedList<>();
-	
+
 	@Override
 	public void enqueue(E e) {
 		this.data.addLast(e);

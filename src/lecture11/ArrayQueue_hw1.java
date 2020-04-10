@@ -2,6 +2,8 @@ package lecture11;
 
 import lecture10.Queue;
 
+import java.util.Comparator;
+
 public class ArrayQueue_hw1<E> implements Queue<E> {
 
     public static void main(String[] args) {
@@ -63,6 +65,11 @@ public class ArrayQueue_hw1<E> implements Queue<E> {
     public boolean isEmpty() {
         return this.size() == 0;
     }
+
+//    @Override
+//    public void sort(Comparator<E> comp) {
+//
+//    }
 
     private void resize(int newSize){
         Object[] newData = new Object[newSize];

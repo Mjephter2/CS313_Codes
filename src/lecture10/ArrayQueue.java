@@ -15,13 +15,13 @@ public class ArrayQueue<E> implements Queue<E> {
 
 	private Object[] data;
 	private int first, size;
-	
+
 	public ArrayQueue(int cap) {
 		this.data = new Object[cap];
 		this.first = 0;
 		this.size = 0;
 	}
-	
+
 	@Override
 	public void enqueue(E e) {
 		if (this.size == this.data.length) return;
