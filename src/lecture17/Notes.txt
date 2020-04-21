@@ -1,0 +1,123 @@
+Tree traversal and implementation
+
+
+
+A traversal of a tree T is a systematic way of accessing or “visiting” all the positions of T.  The target runtime for a traversal algorithm should be O(n), where n is the number of positions of T.
+
+
+
+In preorder traversal of a tree T, the root of T is visited first and then the subtrees rooted at its children are traversed recursively (if the tree is ordered, then the subtrees are traversed according to the order of the children).
+
+
+
+Preorder pseudocode: 
+
+preorder(p):
+
+    Visit p
+
+    For each child c of p:
+
+        preorder(c)
+
+
+
+In postorder traversal of a tree T, the subtrees rooted at its children are traversed recursively and then the root of T is visited (if the tree is ordered, then the subtrees are traversed according to the order of the children).
+
+
+
+Postorder pseudocode: 
+
+postorder(p):
+
+    For each child c of p:
+
+        postorder(c)
+
+Visit p
+
+
+
+In inorder traversal of a tree T, the subtree rooted at the left child of the root is traversed recursively, then the root of T is visited, then the subtree rooted at the right child of the root is traversed recursively.
+
+Inorder traversal is only possible for binary trees.
+
+
+
+Inorder pseudocode: 
+
+inorder(p):
+
+    inorder(left child of p)
+
+Visit p
+
+inorder(right child of p)
+
+
+
+The above three tree traversal algorithms are considered depth-first traversals, because they visit the deepest node of each branch (eventually ending at a leaf) before continuing to the next branch.
+
+
+
+Conversely in breadth-first traversal of tree T, beginning from the root, each position at depth d is visited before visiting the positions at depth d+1 (thus, the deepest position is the last that will be visited).  Unlike the above depth-first traversals, breadth-first traversal is not recursive.
+
+
+
+Breadth-first pseudocode:
+
+    breadthfirst():
+
+        queue.enqueue(root)
+
+        While queue is not empty:
+
+            Position = queue.dequeue()
+
+            Visit position
+
+            For each child of position:
+
+                queue:enqueue(child)
+
+
+
+Implementing the missing methods of BinaryTree using preorder and breadth-first traversal:
+
+[note that the positions() method has been changed and no longer matches the original method declaration]
+
+Iterator<E> iterator()
+
+Iterable<Position<E>> positions()
+
+String toString()
+
+
+
+
+Supplemental reading:
+
+Textbook Ch. 8.4 p. 334 - 342, 346
+
+
+
+Homework:
+
+ 
+1 - Implement the following methods for AbstractBinaryTree which use the other traversal algorithms we didn’t implement in lecture:
+
+ 
+ 
+a - private void postorderSubtree(Position<E> p, List<Position<E>> l)
+
+ 
+ 
+b - public Iterable<Position<E>> postorder()
+
+ 
+ 
+c - private void inorderSubtree(Position<E> p, List<Position<E>> l)
+
+ 
+ 
+d - public Iterable<Position<E>> inorder()
