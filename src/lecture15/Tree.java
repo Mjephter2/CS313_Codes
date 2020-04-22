@@ -16,7 +16,7 @@ public interface Tree<E> extends Iterable<E> {
 	int size();
 	boolean isEmpty();
 	Iterator<E> iterator();
-	Iterator<Position<E>> positions();
+	Iterable<Position<E>> positions();
 
 	public static void main(String[] args) {
 

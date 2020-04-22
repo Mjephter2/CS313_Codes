@@ -111,7 +111,7 @@ public class LinkedTree<E> extends AbstractTree<E> {
 	}
 
 	@Override
-	public Iterator<Position<E>> positions() {
+	public Iterable<Position<E>> positions() {
 		// do not complete
 		return null;
 	}
@@ -146,6 +146,4 @@ public class LinkedTree<E> extends AbstractTree<E> {
 		node.setParent(node);
 		return oldData;
 	}
-	
-	
 }
