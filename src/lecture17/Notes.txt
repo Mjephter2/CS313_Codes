@@ -55,7 +55,7 @@ Textbook Ch. 8.4 p. 334 - 342, 346
 Homework:
 1 - Implement the following methods for AbstractBinaryTree which use the other traversal algorithms we didn’t implement
 in lecture:
-    a - private void postorderSubtree(Position<E> p, List<Position<E>> l)
-    b - public Iterable<Position<E>> postorder()
-    c - private void inorderSubtree(Position<E> p, List<Position<E>> l)
-    d - public Iterable<Position<E>> inorder()
+    a - private void postorderSubtree(Position<E> p, List<Position<E>> l) (done)
+    b - public Iterable<Position<E>> postorder() (done)
+    c - private void inorderSubtree(Position<E> p, List<Position<E>> l) (done)
+    d - public Iterable<Position<E>> inorder() (done)

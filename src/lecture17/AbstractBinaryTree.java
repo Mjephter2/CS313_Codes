@@ -85,6 +85,31 @@ public abstract class AbstractBinaryTree<E> extends AbstractTree<E> implements B
 			preorderSubtree(c, list);
 		}		
 	}
+	private void postOrderSubtree(Position<E> p, List<Position<E>> list){
+		for(Position<E> position: this.children(p)){
+			postOrderSubtree(position, list);
+		}
+		list.add(p);
+	}
+	public Iterable<Position<E>> postOrder() {
+		List<Position<E>> snapshot = new ArrayList<>();
+		postOrderSubtree(this.root(), snapshot);
+		return snapshot;
+	}
+	private void inOrderSubtree(Position<E> p, List<Position<E>> list){
+		if(this.left(p) != null){
+			inOrderSubtree(this.left(p), list);
+		}
+		list.add(p);
+		if(this.right(p) != null){
+			inOrderSubtree(this.right(p), list);
+		}
+	}
+	public Iterable<Position<E>> inOrder(){
+		List<Position<E>> snapshot = new ArrayList<>();
+		inOrderSubtree(this.root(), snapshot);
+		return snapshot;
+	}
 	
 	public Iterable<Position<E>> breadthfirst() {
 		List<Position<E>> list = new ArrayList<>();
