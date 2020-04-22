@@ -82,4 +82,4 @@ Answer: O(n)
 
 3 - What is the worst-case big O runtime for the height(...) method implementation in the AbstractTree class, where n is
 the number of elements in the tree?
-Answer
+Answer: O(n)

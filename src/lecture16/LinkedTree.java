@@ -1,7 +1,7 @@
 package lecture16;
 
+import java.util.LinkedList;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import lecture15.AbstractTree;
@@ -59,40 +59,49 @@ public class LinkedTree<E> extends AbstractTree<E> {
 		this.root = null;
 		this.size = 0;
 	}
-	
+
+	// O(1)
 	private Node<E> validate(Position<E> p) {
-		// TODO Auto-generated method stub
-		return null;
+		if(! (p instanceof Node)) throw new IllegalArgumentException("Position is not the correct type");
+		Node<E> node = (Node<E>) p;
+		if(node.getParent() == node) throw new IllegalArgumentException("Position is not in the tree.");
+		return node;
 	}
 
+	// O(1)
 	@Override
 	public Position<E> root() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.root;
 	}
 
+	// O(n)
 	@Override
 	public Position<E> parent(Position<E> p) {
-		// TODO Auto-generated method stub
-		return null;
+		Node<E> node = this.validate(p);
+		return node.getParent();
 	}
 
+	// O(n)
 	@Override
 	public Iterable<Position<E>> children(Position<E> p) {
-		// TODO Auto-generated method stub
-		return null;
+		Node<E> node = this.validate(p);
+		List<Node<E>> c = node.children;
+		List<Position<E>> cp = new LinkedList<>();
+		for(Node<E> currNode: c){
+			cp.add(currNode);
+		}
+		return cp;
 	}
 
 	@Override
 	public int numChildren(Position<E> p) {
-		// TODO Auto-generated method stub
-		return 0;
+		Node<E> node = this.validate(p);
+		return node.getChildren().size();
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.size;
 	}
 
 	@Override
@@ -102,29 +111,40 @@ public class LinkedTree<E> extends AbstractTree<E> {
 	}
 
 	@Override
-	public Iterable<Position<E>> positions() {
+	public Iterator<Position<E>> positions() {
 		// do not complete
 		return null;
 	}
 
 	public Position<E> addRoot(E e) throws IllegalStateException {
-		// TODO Auto-generated method stub
-		return null;
+		if(this.isEmpty()) throw new IllegalStateException("Tree is not empty");
+		Node<E> newRoot = new Node<>(e,null, null);
+		this.size++;
+		return newRoot;
 	}
 
 	public Position<E> addChild(Position<E> p, E e) {
-		// TODO Auto-generated method stub
-		return null;
+		Node<E> node = this.validate(p);
+		Node<E> newChild = new Node<E>(e, node, null);
+		node.getChildren().add(newChild);
+		this.size++;
+		return newChild;
 	}
 	
 	public E set(Position<E> p, E e) {
-		// TODO Auto-generated method stub
-		return null;
+		Node<E> node = this.validate(p);
+		E oldData = node.getElement();
+		node.setElement(e);
+		return oldData;
 	}
 	
 	public E remove(Position<E> p) {
-		// TODO Auto-generated method stub
-		return null;
+		Node<E> node = this.validate(p);
+		E oldData = node.getElement();
+		if(node.getChildren() != null) throw new IllegalStateException("Not allowed to remove Position with children");
+		node.getParent().getChildren().remove(oldData);
+		node.setParent(node);
+		return oldData;
 	}
 	
 	

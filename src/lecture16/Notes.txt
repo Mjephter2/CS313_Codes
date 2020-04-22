@@ -1,60 +1,33 @@
 Implementing BinaryTree
-
-
-
-Linked structure implementation
-
-Node implements Position
-
+-Linked structure implementation
+-Node implements Position
 Setter and getter methods for E element, Node parent, Node left, and Node right
-
-
-
 LinkedBinaryTree
-
 Position addRoot(E)
-
 Position addLeft(Position, E)
-
 Position addRight(Position, E)
-
 E set(Position, E)
-
 void attach(Position, LinkedBinaryTree, LinkedBinaryTree)
-
 E remove(Position)
-
-
-
 private Node validate(Position)
-
-
-
 Note that iterator() and positions() are left incomplete
 
-
-
 Runtime analysis:
-
 All methods O(1) except depth and height, which are O(n) in the worst case.
 
-
-
 Supplemental Reading:
-
 Textbook Ch. 8.3 p. 323-333
-
-
 
 Homework:
 
- 
-1 - When a Position is removed from the tree, why is it important to set the node’s parent variable to point to the node itself?
+1 - When a Position is removed from the tree, why is it important to set the node’s parent variable to point to the node
+itself?
+Answer: to be able to recognize the removed node as an invalid node when using the validate(...) method
 
- 
- 
 2 - Why does the remove(...) method not allow a node to be removed if it has two children?
+Answer: when a node has 2 children, it is ambiguous as to which child to replace it with when removed.
 
- 
- 
-3 - Included in the posted lecture code is an incomplete implementation of a LinkedTree.  LinkedTree is intended to represent trees whose nodes can have any number of children (unlike binary trees).   Complete the implementation (note that you do not need to implement a void attach(...) method, and the E remove(Position) method should only operate on leaf positions).
+3 - Included in the posted lecture code is an incomplete implementation of a LinkedTree.  LinkedTree is intended to
+represent trees whose nodes can have any number of children (unlike binary trees).   Complete the implementation
+(note that you do not need to implement a void attach(...) method, and the E remove(Position) method should only
+operate on leaf positions).

@@ -2,7 +2,7 @@ package lecture16;
 
 import java.util.Iterator;
 
-import lecture17.AbstractBinaryTree;
+import lecture15.AbstractBinaryTree;
 import lecture15.Position;
 
 public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
@@ -101,6 +101,16 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 	@Override
 	public int size() {
 		return this.size;
+	}
+
+	@Override
+	public Iterator<E> iterator() {
+		return null;
+	}
+
+	@Override
+	public Iterator<Position<E>> positions() {
+		return null;
 	}
 
 	//methods to construct/modify the tree
