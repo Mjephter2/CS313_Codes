@@ -1,0 +1,54 @@
+
+Priority Queues (Implementation with Array-based Binary Tree, aka Heap), part 2
+
+A heap is a complete binary tree that stores entries at its positions such that for every position p (other than the
+root), the key stored at p is greater than or equal to the key stored at p’s parent.
+[So the key stored at the root entry is less than or equal to all other keys in the tree]
+Because a heaps is a complete binary tree, a heap storing n entries has height
+h = ⌊log n⌋
+(log n rounded down to the nearest integer)
+
+A heap is a structure specifically suited to implementing a priority queue.  It has two primary operations: adding an
+entry, and removing an entry with a minimal key.
+Adding an entry to a heap:
+Create a new node at the next available position at the bottom level of the tree (in this way, the tree remains complete).
+In order for the heap to be valid, every key stored at a position p must be greater than or equal to the key stored at
+p’s parent.  This property may be violated by the new node that was created.  To maintain this property, we then perform
+up-heap bubbling:
+If the key of the new entry is less than the key of its current parent’s entry, swap the entries.
+Repeat this process until the key of the new entry is not less than the key of its current parent, or until the new entry
+is placed in the root position.
+
+Removing an entry with a minimal key from a heap:
+Since the entry stored at the root must have a minimal key, remove this entry and return it.
+In order to preserve the tree completeness, move the last entry in the tree (currently stored at the rightmost position
+on the bottom level) to replace the entry just removed from the root position. Then delete the last position (where this
+entry was just taken from).
+
+In order for the heap to be valid, every key stored at a position p must be greater than or equal to the key stored at
+p’s parent.  This property may be violated by moving the last entry to the root.  To maintain this property, we then
+perform down-heap bubbling:
+If the key of any of the last entry’s children is less than its own key, swap the last entry with whichever of its
+children’s entries is smallest.
+Repeat this process until the key of any of the last entry’s children is not less than its own key.
+Because a heap must maintain the completeness property, adding and removing entries relies on being able to identify the
+last position on the lowest level of the tree.  This requires some effort in a node-based binary tree, but is very simple
+to compute in an array-based binary tree.
+
+Array-based heap implementation
+The root is located at index 0.
+The parent of the position at index p is located at index (p - 1) / 2
+The left child of the position at index p is located at index 2*p + 1
+The right child of the position at index p is located at index 2*p + 2
+
+Supplemental Reading:
+Textbook Ch. 9.3 p. 370 - 383
+
+Homework:
+1. The main challenge of implementing a heap using a node-based binary tree is that in both the insert() and removeMin()
+methods we need to be able to quickly access the last entry in the tree.  It is not impossible to overcome this challenge;
+an instance variable can be used to keep track of what node is the rightmost on the lowest level of the tree.  If we
+don’t have such an instance variable keeping track of the last node, how can we locate the last node?  Add a private
+method getLast() to the LinkedBinaryTree implementation that returns the rightmost position located on the lowest level
+of the tree (this method should assume the tree is complete).  Challenge: implement this method so that the runtime is
+better than O(n).

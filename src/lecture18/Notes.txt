@@ -1,64 +1,32 @@
 Priority Queues (Implementation with Array-based Binary Trees)
-
-
-
 Priority Queue: an alternative to FIFO
-
 Elements are inserted at an arbitrary position
-
 Elements are removed according to their priority (lowest priority is removed first)
-
-
-
-We use two generic types, K and V, to represent the Key and Value of an element in a priority queue.  The Key is a measure of priority. The Value represents the data.
-
+We use two generic types, K and V, to represent the Key and Value of an element in a priority queue.  The Key is a
+measure of priority. The Value represents the data.
 Together, a Key, Value pair is represented as an Entry
-
-
-
 Entry<K, V>
-
 K getKey()
-
 V getValue()
 
-
-
 Priority Queue ADT:
-
 Entry insert(K, V)
-
-Entry min() 
-
+Entry min()
 Entry removeMin()
-
 int size()
-
 boolean isEmpty()
 
-
-
-Any data type can serve as the key, K, as long as keys can be compared in such a way as to form a total order.  In short, the comparison method must clearly define which key or keys are minimal for any arbitrary set of keys (there may be multiple minimal keys).
-
-
-
+Any data type can serve as the key, K, as long as keys can be compared in such a way as to form a total order.
+In short, the comparison method must clearly define which key or keys are minimal for any arbitrary set of keys (there
+may be multiple minimal keys).
 We use Comparator for defining key orderings.
-
 We also implement a default Comparator based on any Key ordering that might already be defined with Comparable
-
-
-
 Three different Priority Queue implementations: unsorted list, sorted list, binary heap (array-based binary tree)
 
-
-
 Supplemental Reading:
-
 Textbook ch. 9.1, 9.2 p. 360 - 369
-
-
 
 Homework:
 
- 
-1 - Design 3 different Comparator classes that are all used to compare integers.  Each of these comparators should define a different ordering which could be used to determine the priority of Integer keys.
+1 - Design 3 different Comparator classes that are all used to compare integers.  Each of these comparators should
+define a different ordering which could be used to determine the priority of Integer keys.
