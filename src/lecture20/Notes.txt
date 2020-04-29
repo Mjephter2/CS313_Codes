@@ -1,0 +1,63 @@
+Maps
+
+
+
+A map is a structure that stores key-value pairs, called entries (similar to a priority queue).  Unlike a priority queue, however, the keys of each entry must be unique, so that each key “maps” to exactly one associated value.  Then the values stored in a map can be searched for using their unique key.
+
+
+
+Entry<K,V>  (same as Entry interface for PriorityQueue)
+
+K getKey()
+
+V getValue()
+
+
+
+Map<K,V> interface
+
+V get(K)
+
+V put(K,V)
+
+V remove(K)
+
+Iterable<K> keySet()
+
+Iterable<V> values()
+
+Iterable<Entry<K,V>> entrySet()
+
+int size()
+
+boolean isEmpty()
+
+
+
+AbstractMap<K,V> implementation
+
+
+
+UnsortedTableMap<K,V> implementation - an inefficient ArrayList-based implementation
+
+
+
+Big O analysis of UnsortedTableMap
+
+
+
+Supplemental Reading:
+
+Textbook Ch. 10.1 p. 402 - 409
+
+
+
+Homework:
+
+ 
+As described in the textbook (p.405), a Map can be used to count the frequency of words in text.  This is a common problem in the field of Natural Language Processing.  Using the UnsortedTableMap implementation, write a complete program that takes a text file as an input and outputs a file containing the top 10 most frequent words in the text, along with the number of times each of those words appeared.  You may use your own .txt file to debug, or try an existing file such as the one found here
+
+ 
+https://www.gutenberg.org/files/5200/5200.txt
+
+What is the best big O characterization of your entire program?
