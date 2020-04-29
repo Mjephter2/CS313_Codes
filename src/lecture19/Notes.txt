@@ -50,5 +50,9 @@ methods we need to be able to quickly access the last entry in the tree.  It is 
 an instance variable can be used to keep track of what node is the rightmost on the lowest level of the tree.  If we
 don’t have such an instance variable keeping track of the last node, how can we locate the last node?  Add a private
 method getLast() to the LinkedBinaryTree implementation that returns the rightmost position located on the lowest level
-of the tree (this method should assume the tree is complete).  Challenge: implement this method so that the runtime is
+of the tree (this method should assume the tree is complete).
+Challenge: implement this method so that the runtime is
 better than O(n).
+Answer: We can locate the rightmost node by starting from the root and going down the tree each time choosing the child
+with the greatest height.
+Runtime -

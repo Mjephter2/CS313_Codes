@@ -60,7 +60,27 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 		this.root = null;
 		this.size = 0;
 	}
-	
+
+	/**
+	 *
+	 * HW19
+	 * O([log(n)]^2)
+	 */
+	private Position<E> getLast(){
+		if(this.isEmpty()) return null;
+
+		Node<E> current = this.root;
+		while (this.numChildren(current) == 2){
+			if(this.height(this.left(current)) > this.height(this.right(current))){
+				current = current.getLeft();
+			}else{
+				current = current.getRight();
+			}
+		}
+		if(this.size == 1) return this.root;
+		return current.getLeft();
+	}
+
 	//O(1)
 	private Node<E> validate(Position<E> p) {
 		if (!(p instanceof Node)) throw new IllegalArgumentException("Position is not the correct type");
