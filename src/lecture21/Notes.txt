@@ -1,0 +1,60 @@
+Hash Tables
+Storing map entries in an unsorted array is very inefficient, as we saw last lecture.  By using a hash table to store data,
+we can greatly improve the efficiency of our map.
+A hash function, h, is a function that maps a key to an index value.  Then h(key) returns an integer within the range 0
+to n-1.
+By designing a hash function, we can efficiently store or locate entries in our table by key.  Thus, we can consider that
+the hash function provides a sort of address for each key.
+table[h(key)] //access the entry associated with a particular key in the table.
+
+A hash function typically consists of two parts:
+A hash code, that maps a key to any integer value
+A compression function, that maps a hash code (any integer value) to a valid array index
+
+With this approach, the hash code can follow a general design independent of the array capacity.
+It is possible for a hash function to assign the same array index to two (or more) different keys.  This is called a
+collision.  Sometimes collisions are unavoidable, but a hash function is considered a good hash function if it minimizes
+collisions.  It is more likely that a collision will occur in the compression function, as this is where the output values
+are limited to the table bounds (since collisions might occur in the compression function, the hash code step - which maps
+a key to any integer - should not result in collisions).
+
+Some approaches for generating hash codes:
+Using an integer interpretation of the bit representation of a data type (directly)
+Using the bit representation of a datatype to generate an integer (by computation, if the data is too large)
+Using the components of the key (i.e characters of a String) as coefficients in a large polynomial
+Using the the integer value of the memory address of an object
+
+Some approaches for compression functions, where n is the capacity of the table (array)
+i mod n (remember that in Java, negative modulus behaves unexpectedly)
+Multiply-Add-and-Divide (MAD): [(ai + b) mod p] mod n, where p is a prime number larger than n, and a and b are random
+integers less than p
+
+Some approaches for handling collisions:
+Linear probing - if a collision occurs, use the next empty index.
+Separate chaining: storing a smaller map at each index in the main map
+
+Since collisions can occur, we do not use a standard array or ArrayList to store entries.  Instead, we use what is called
+a bucket array, which is an array whose entries consist of additional data structures (or “bucket”) where multiple values
+can be stored when collisions occur.  Thus our approach for handling collisions will be separate chaining.
+The load factor of a hash table is the ratio n / N, where n represents the number of elements in the table and N represents
+the capacity of the bucket array.  n / N represents the ideal number of entries stored in a single bucket, and it also
+describes the efficiency of the core map operations, O( n / N ).  As long as the load factor is < 1, the core map operations
+run in O(1) time.  If an insertion into the table causes the load factor to exceed 1, we should resize the table (and reinsert
+all the existing objects, since the compression function will change with the capacity change).
+
+Supplemental Readings
+Textbook Ch. 10.2 p. 410 - 421
+
+Homework
+1 - Design a method of generating hash codes for Strings other than the methods discussed in lecture.  (Your method doesn’t
+have to be “good”, in the sense that it may result in many collisions.)
+
+ 
+ 
+2 - Assume you have a hash table with capacity 10 implemented with separate chaining for collision resolution.
+Given a = 3, b = 4, and p = 11, use the MAD compression function to find the indices where the following entries would
+be stored.  Use the ascii value of the character key as its hash code.
+    a. ( ‘a’, “first value” )
+    b. ( ‘z’, “second value” )
+    c. ( ‘c’, “last value” )
+Do any collisions occur?
