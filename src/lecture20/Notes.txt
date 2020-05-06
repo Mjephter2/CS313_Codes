@@ -34,3 +34,4 @@ that takes a text file as an input and outputs a file containing the top 10 most
 the number of times each of those words appeared.  You may use your own .txt file to debug, or try an existing file such
 as the one found here https://www.gutenberg.org/files/5200/5200.txt
 What is the best big O characterization of your entire program?
+Answer - If the number of words in the textfile is n, then the runtime of my solution is O(n^2)

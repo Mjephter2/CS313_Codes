@@ -1,0 +1,11 @@
+Top 10 words in the file: /Users/jephtermaurice/OneDrive/College/Spring 2020/CSCI 313/CS313_Codes/src/lecture20/5200.txt
+1.	the	:	1332 times
+2.	to	:	833 times
+3.	and	:	711 times
+4.	he	:	593 times
+5.	of	:	552 times
+6.	his	:	550 times
+7.	was	:	410 times
+8.	in	:	406 times
+9.	it	:	385 times
+10.	that	:	360 times
