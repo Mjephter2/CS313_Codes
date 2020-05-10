@@ -56,3 +56,7 @@ be stored.  Use the ascii value of the character key as its hash code.
     b. ( ‘z’, “second value” )
     c. ( ‘c’, “last value” )
 Do any collisions occur?
+Answer:     a. ((3*97 + 4) % 11) % 10 = 9
+            b. ((3*122 + 4) % 11) % 10 = 7
+            c. ((3*99 + 4) % 11) % 10 = 4
+            No collisions occurred.
