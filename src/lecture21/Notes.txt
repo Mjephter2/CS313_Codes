@@ -48,6 +48,7 @@ Textbook Ch. 10.2 p. 410 - 421
 Homework
 1 - Design a method of generating hash codes for Strings other than the methods discussed in lecture.  (Your method doesn’t
 have to be “good”, in the sense that it may result in many collisions.)
+solution : refer to hw21.java
 
 2 - Assume you have a hash table with capacity 10 implemented with separate chaining for collision resolution.
 Given a = 3, b = 4, and p = 11, use the MAD compression function to find the indices where the following entries would
