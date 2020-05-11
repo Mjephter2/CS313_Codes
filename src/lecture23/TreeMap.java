@@ -1,14 +1,13 @@
 package lecture23;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-
 import lecture15.Position;
 import lecture16.LinkedBinaryTree;
 import lecture18.DefaultComparator;
 import lecture18.Entry;
 import lecture20.AbstractMap;
 import lecture20.Map;
+
+import java.util.Comparator;
 
 public class TreeMap<K,V> extends AbstractMap<K,V> {
 
@@ -106,11 +105,12 @@ public class TreeMap<K,V> extends AbstractMap<K,V> {
 
 	@Override
 	public Iterable<Entry<K, V>> entrySet() {
-		ArrayList<Entry<K,V>> iterable = new ArrayList<>(this.size());
-		for ( Position<Entry<K,V>> p : this.tree.inorder() )
-			if ( this.tree.isInternal(p))
-				iterable.add(iterable.size(), p.getElement());
-		return iterable;
+//		ArrayList<Entry<K,V>> iterable = new ArrayList<>(this.size());
+//		for ( Position<Entry<K,V>> p : this.tree.inorder() )
+//			if ( this.tree.isInternal(p))
+//				iterable.add(iterable.size(), p.getElement());
+//		return iterable;
+		return null;
 	}
 
 	@Override
