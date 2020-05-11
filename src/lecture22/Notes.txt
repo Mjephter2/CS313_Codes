@@ -1,27 +1,14 @@
 Notes
 Java Hash Table implementation, overview of Tree-base Map
-
-
-
-ChainHashMap 
-
+ChainHashMap
 Bucket array with UnsortedTableMaps for separate chaining (collision handling)
-
-Java hashCode() for hash code generation 
-
+Java hashCode() for hash code generation
 MAD compression function
-
-
-
 MAD (Multiply, Add and Divide)
-
-p can be any prime larger than the bucket array capacity.  If the capacity changes (due to resizing) a larger prime may need to be selected.  If a significantly large prime is chosen, it may not be necessary to choose a new prime when resizing.
-
-
+p can be any prime larger than the bucket array capacity.  If the capacity changes (due to resizing) a larger prime may
+need to be selected.  If a significantly large prime is chosen, it may not be necessary to choose a new prime when resizing.
 
 java.math.BigInteger can be used to reliably generate the next prime number
-
-
 
 Binary Search Tree (TreeMap) properties:
 
@@ -31,59 +18,34 @@ For each position, p storing entry (k, v):
 
     All keys stored in the left subtree of p are less than k
 
-All keys stored in the right subtree of p are greater than k
-
-
+    All keys stored in the right subtree of p are greater than k
 
 Overview of essential map methods with a Binary Search Tree
-
-
 Remove:
-
 Case 1: The position p has 0 children that are internal. Simply remove p
 Case 2: The position p has 1 child that is internal.  Remove p and promote p's internal child to p's former position
-Case 3: The position p has 2 internal children.  Locate p's greatest descendant in its left subtree (this is the rightmost position in the left subtree).  Swap the entries of p and this descendant.  Then remove the descendant by Case 1.
-
+Case 3: The position p has 2 internal children.  Locate p's greatest descendant in its left subtree (this is the rightmost
+position in the left subtree).  Swap the entries of p and this descendant.  Then remove the descendant by Case 1.
 
 Supplemental Reading
-
 Textbook Ch. 10.2.4 p. 422 - 425
-
 Textbook Ch. 11.1 p. 460 - 465
 
-
-
 Homework:
+1 - The MAD compression function utilized in the ChainHashMap implementation is not required to use an incredibly large
+prime number - the number must merely be larger than the bucket array capacity.  Modify the implementation so that the
+prime number used is chosen based on the size of the bucket array.  You may find it convenient to utilize the
+java.math.BigInteger class to select a prime number.
 
- 
-The MAD compression function utilized in the ChainHashMap implementation is not required to use an incredibly large prime number - the number must merely be larger than the bucket array capacity.  Modify the implementation so that the prime number used is chosen based on the size of the bucket array.  You may find it convenient to utilize the java.math.BigInteger class to select a prime number.
+2 - This implementation of ChainHashMap could improve its space efficiency since it is likely that many of the
+UnsortedTableMaps stored in the bucket array will remain empty, wasting space.  Modify the ChainHashMap so that an
+UnsortedTableMap only exists in a bucket array cell if that cell contains actual entry data.
 
- 
- 
-This implementation of ChainHashMap could improve its space efficiency since it is likely that many of the UnsortedTableMaps stored in the bucket array will remain empty, wasting space.  Modify the ChainHashMap so that an UnsortedTableMap only exists in a bucket array cell if that cell contains actual entry data.
-
- 
- 
-Draw the Binary Search Tree resulting from performing the following operations on tree pictured below:
-
- 
- 
-Insert 20
-
- 
- 
-Remove 18
-
- 
- 
-Insert 14
-
- 
- 
-Remove 33
-
- 
- 
-Insert 17
+3 - Draw the Binary Search Tree resulting from performing the following operations on tree pictured below:
+    a - Insert 20
+    b - Remove 18
+    c - Insert 14
+    d - Remove 33
+    e - Insert 17
 
  
