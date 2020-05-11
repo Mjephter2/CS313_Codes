@@ -1,0 +1,68 @@
+Notes
+Binary Search Trees (TreeMap)
+A Binary Search Tree is a tree with the following properties:
+The tree is a full tree (aka proper)
+(However, all leaf positions are positions containing null entries.  We can think of the leaf positions as sentinels,
+as in a LinkedList)
+For each position, p storing entry (k, v):
+All keys stored in the left subtree of p are less than k
+All keys stored in the right subtree of p are greater than k
+
+//recursive method to search a binary search tree
+search(Position p, Key k)
+    if p is external return p //leaf reached, no match found
+    else if k == p.key return p //match found
+    else is k < p.key return search(p.left, k) //recursively search left subtree
+    else return search(p.right, k) //recursively search right subtree
+
+Essential methods
+Get
+Search for matching entry and return its value, if any
+
+Put
+Search for matching entry
+    If found, update value
+    Otherwise, insert new entry
+
+Remove
+Search for matching entry. If found, return value and delete
+
+Insertion steps:
+Create an entry and store it in the empty leaf position
+Create two new empty leaf positions for this position in order to make it internal
+
+Deletion steps
+Case 1: The entry to delete has two leaf nodes as children.
+    Delete the children
+    Delete the entry at this node (so it is now an empty leaf node itself)
+Case 2: The entry to delete has 1 child leaf node (the other child is not a leaf)
+    Link this node’s child to its parent (the node itself will now be garbage collected)
+Case 3: The entry has two internal child nodes.
+Locate a replacement entry (the entry with the next-smallest key)
+    Access the left subtree
+    Find the rightmost internal node in the left subtree
+    Swap this node’s entry with the replacement entry
+    Delete the node that now contains the original entry
+
+Binary search tree size is the number of internal nodes, since all external nodes are empty (sentinels).
+The number of internal nodes in a full binary tree with n nodes is (n-1) / 2
+Benefits of a Binary Search Tree map implementation (comparison of TreeMap and ChainHashMap)
+
+Supplemental Reading
+*The implementation in the textbook has significant differences (for now)
+Textbook Ch. 11.1 p. 460 - 471
+
+Homework
+
+The essential map methods of TreeMap run on O(h) time, where h is the height of the tree.
+When we implemented a PriorityQueue with a heap, our essential methods ran in O(log n) time.
+Recall that a heap is a special type of complete binary tree, while the TreeMap uses a special type of full binary tree.
+a - Describe the difference between the runtime O(h) and O(log n) (i.e., which is faster and why)
+b - Why can’t we use a heap to implement a TreeMap?
+
+2 - TreeMap requires a Comparator in order to determine where entries are located.  Why doesn’t ChainHashMap need a
+Comparator to accomplish the same task?
+
+3 - HeapPriorityQueue used a Comparator as well.  In the HeapPriorityQueue implementation we utilized a method called
+checkKey(K key) to ensure a key was safe to use.  Add the checkKey(...) method to the TreeMap implementation and
+modify any relevant methods that should use it.
