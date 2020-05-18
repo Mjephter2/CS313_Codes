@@ -1,9 +1,11 @@
 package lecture16;
 
-import java.util.Iterator;
-
 import lecture15.AbstractBinaryTree;
 import lecture15.Position;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 	
@@ -238,6 +240,21 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 		this.size--;
 		
 		return old;
+	}
+
+	public Iterable<Position<E>> inorder( ) {
+		List<Position<E>> snapshot = new ArrayList<>();
+		if(!(this.size() == 0)){
+			this.inorderSubtree(root, snapshot);
+		}
+		return snapshot;
+	}
+
+	private void inorderSubtree(Position<E> p, List<Position<E>> snapshot){
+		if(this.left(p) != null) inorderSubtree(this.left(p), snapshot);
+		snapshot.add(p);
+		if(this.right(p) != null) inorderSubtree(this.right(p), snapshot);
+		snapshot.add(p);
 	}
 	
 }
