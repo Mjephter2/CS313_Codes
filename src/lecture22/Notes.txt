@@ -11,13 +11,9 @@ need to be selected.  If a significantly large prime is chosen, it may not be ne
 java.math.BigInteger can be used to reliably generate the next prime number
 
 Binary Search Tree (TreeMap) properties:
-
 Full tree (aka proper); however, leaf positions can contain null entries
-
 For each position, p storing entry (k, v):
-
     All keys stored in the left subtree of p are less than k
-
     All keys stored in the right subtree of p are greater than k
 
 Overview of essential map methods with a Binary Search Tree
