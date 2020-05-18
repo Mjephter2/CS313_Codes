@@ -1,12 +1,12 @@
 package lecture22;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import lecture18.Entry;
 import lecture20.AbstractMap;
 import lecture20.UnsortedTableMap;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class ChainHashMap<K,V> extends AbstractMap<K,V> {
 

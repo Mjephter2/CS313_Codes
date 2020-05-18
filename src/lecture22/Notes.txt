@@ -31,11 +31,11 @@ Homework:
 1 - The MAD compression function utilized in the ChainHashMap implementation is not required to use an incredibly large
 prime number - the number must merely be larger than the bucket array capacity.  Modify the implementation so that the
 prime number used is chosen based on the size of the bucket array.  You may find it convenient to utilize the
-java.math.BigInteger class to select a prime number.
+java.math.BigInteger class to select a prime number. (done)
 
 2 - This implementation of ChainHashMap could improve its space efficiency since it is likely that many of the
 UnsortedTableMaps stored in the bucket array will remain empty, wasting space.  Modify the ChainHashMap so that an
-UnsortedTableMap only exists in a bucket array cell if that cell contains actual entry data.
+UnsortedTableMap only exists in a bucket array cell if that cell contains actual entry data. (done)
 
 3 - Draw the Binary Search Tree resulting from performing the following operations on tree pictured below:
     a - Insert 20
