@@ -62,6 +62,7 @@ b - Why can’t we use a heap to implement a TreeMap?
 
 2 - TreeMap requires a Comparator in order to determine where entries are located.  Why doesn’t ChainHashMap need a
 Comparator to accomplish the same task?
+The location of the entry is determined by hash(key).
 
 3 - HeapPriorityQueue used a Comparator as well.  In the HeapPriorityQueue implementation we utilized a method called
 checkKey(K key) to ensure a key was safe to use.  Add the checkKey(...) method to the TreeMap implementation and
