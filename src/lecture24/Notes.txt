@@ -1,42 +1,24 @@
 SortedMap implementation with LinkedBinaryTree
 
-
-
-A SortedMap introduces ordering to the Keys in a Map.  A common use case for a SortedMap is to represent a timeline of events, where an entry is an event represented by a timestamp (key) and a description of the event (value).
-
-
+A SortedMap introduces ordering to the Keys in a Map.  A common use case for a SortedMap is to represent a timeline of
+events, where an entry is an event represented by a timestamp (key) and a description of the event (value).
 
 SortedMap interface (in addition to regular Map methods)
-
 Entry firstEntry()
-
 Entry lastEntry()
-
 Entry floorEntry(Key)
-
 Entry ceilingEntry(Key
-
 Entry lowerEntry(Key)
-
 Entry higherEntry(Key)
-
 Iterable<Entry> subMap(Key, Key)
-
-
 
 Implementation
 
-
-
 Supplemental Readings:
-
 Textbook Ch. 10.3 p. 428, 433
-
 Textbook Ch. 11.1 p. 466 - 471
 
-
-
 Homework:
-
- 
-1 - Design and implement a SortedMap that uses a List structure to store data (any list of your choice).  The methods must each work as expected, but they do not need to meet any specific time efficiency requirements.  You may find it helpful to use the UnsortedTableMap from lecture 20 as a starting point.
+1 - Design and implement a SortedMap that uses a List structure to store data (any list of your choice).
+The methods must each work as expected, but they do not need to meet any specific time efficiency requirements.
+You may find it helpful to use the UnsortedTableMap from lecture 20 as a starting point.
