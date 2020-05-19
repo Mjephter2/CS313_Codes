@@ -1,0 +1,35 @@
+Balancing Binary Search Trees: AVL Tree
+
+
+
+An AVL tree is a binary tree that satisfies the height-balance property. AVL trees are named after their inventors: Adel’son-Vel’skii and Landis (the name has no bearing on the usage or structure of the tree).
+
+
+
+The height-balance property states that for every position p, the heights of p’s children differ by at most 1.
+
+
+
+A rotation operation is used to “rotate” a child above its parent, maintaining the binary search-tree property.  If position x was a left child of position y, performing a rotation results in y becoming a right child of x.  Any former right subtree of x becomes the left subtree of y.
+
+
+
+Occasionally a double rotation must be performed in order to maintain the height-balance property.  In a double rotation, a position x may be rotated with its parent y, and then rotated again with its former grandparent, z.  In the resulting tree, z and y become the children of x.
+
+
+
+AVLTree implementation
+
+
+
+Modifying SortedTreeMap to use AVLTree    
+
+
+
+Supplemental Reading:
+
+Textbook Ch. 11.2 p. 472 - 487
+
+
+
+Homework: (None)
