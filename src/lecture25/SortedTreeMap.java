@@ -1,13 +1,14 @@
 package lecture25;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-
 import lecture15.Position;
 import lecture18.DefaultComparator;
 import lecture18.Entry;
 import lecture20.AbstractMap;
 import lecture24.SortedMap;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class SortedTreeMap<K,V> extends AbstractMap<K,V> implements SortedMap<K,V> {
 
@@ -109,7 +110,7 @@ public class SortedTreeMap<K,V> extends AbstractMap<K,V> implements SortedMap<K,
 	@Override
 	public Iterable<Entry<K, V>> entrySet() {
 		ArrayList<Entry<K,V>> iterable = new ArrayList<>(this.size());
-		for ( Position<Entry<K,V>> p : this.tree.inorder() )
+		for ( Position<Entry<K, V>> p : this.inorder() )
 			if ( this.tree.isInternal(p))
 				iterable.add(iterable.size(), p.getElement());
 		return iterable;
@@ -232,6 +233,21 @@ public class SortedTreeMap<K,V> extends AbstractMap<K,V> implements SortedMap<K,
 	public int getHeight() {
 		return this.tree.height(this.tree.root());
 	}
+
+	public Iterable<Position<Entry<K,V>>> inorder( ) {
+		List<Position<Entry<K,V>>> snapshot = new ArrayList<>();
+		if(!(this.size() == 0)){
+			this.inorderSubtree(this.tree.root(), snapshot);
+		}
+		return snapshot;
+	}
+
+	private void inorderSubtree(Position<Entry<K,V>> p, List<Position<Entry<K,V>>> snapshot){
+		if(this.tree.left(p) != null) inorderSubtree(this.tree.left(p), snapshot);
+		snapshot.add(p);
+		if(this.tree.right(p) != null) inorderSubtree(this.tree.right(p), snapshot);
+		snapshot.add(p);
+	}
 	
 	public static void main(String[] args) {
 		SortedTreeMap<Integer, String> m = new SortedTreeMap<>();
@@ -254,9 +270,7 @@ public class SortedTreeMap<K,V> extends AbstractMap<K,V> implements SortedMap<K,
 			m.put(i, Character.toString((char) i));
 			System.out.println(m.size() + ":" + m.getHeight());
 		}
-		
-		
-		
+
 	}
 	
 }
